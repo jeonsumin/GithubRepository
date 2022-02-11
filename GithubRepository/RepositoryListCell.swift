@@ -21,7 +21,7 @@ class RepositoryListCell: UITableViewCell {
         super.layoutSubviews()
         [
             nameLabel,descriptionLabel,
-         starImageView,starLabel,languageLabel
+            starImageView,starLabel,languageLabel
         ].forEach{
             contentView.addSubview($0)
         }
@@ -39,13 +39,14 @@ class RepositoryListCell: UITableViewCell {
         
         starLabel.text = "\(repository.stargazersCount)"
         starLabel.font = .systemFont(ofSize: 16)
+        starLabel.textColor = .gray
         
         languageLabel.text = repository.language
         languageLabel.font = .systemFont(ofSize: 16)
         languageLabel.textColor = .gray
             
         nameLabel.snp.makeConstraints{
-            $0.top.leading.trailing.equalToSuperview().inset(8)
+            $0.top.leading.trailing.equalToSuperview().inset(18)
         }
         descriptionLabel.snp.makeConstraints{
             $0.top.equalTo(nameLabel.snp.bottom).offset(3)
@@ -55,10 +56,10 @@ class RepositoryListCell: UITableViewCell {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(8)
             $0.leading.equalTo(descriptionLabel)
             $0.width.height.equalTo(20)
-            $0.bottom.equalToSuperview().inset(10)
+            $0.bottom.equalToSuperview().inset(18)
         }
         starLabel.snp.makeConstraints{
-            $0.centerX.equalTo(starImageView)
+            $0.centerY.equalTo(starImageView)
             $0.leading.equalTo(starImageView.snp.trailing).offset(5)
         }
         languageLabel.snp.makeConstraints{
